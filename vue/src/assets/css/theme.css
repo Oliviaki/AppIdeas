@@ -1,0 +1,22 @@
+
+html[data-theme="dark"] {
+  --text-color: #f8fafc;
+  --bg-color: #1e293b;
+  --primary-color: #3b82f6;
+  --secondary-color: #334155;
+  --accent-color: #a855f7;
+  --border-color: #475569;
+  --card-bg: #0f172a;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+:root {
+  --text-color: #333;
+  --bg-color: #fff;
+  --primary-color: #2563eb;
+  --secondary-color: #e2e8f0;
+  --accent-color: #d946ef;
+  --border-color: #e2e8f0;
+  --card-bg: #f8fafc;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
