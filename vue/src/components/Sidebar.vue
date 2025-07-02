@@ -22,22 +22,83 @@
       </div>
     </div>
     <div class="intermediate">
-      <router-link to="/intermediate">中级</router-link>
+      <router-link to="/intermediate">
+        <span>中级</span>
+        <i
+          class="iconfont icon-arrowdown"
+          @click="isShowIntermediateList = !isShowIntermediateList"
+          :class="{ active: isShowIntermediateList }"
+        ></i>
+      </router-link>
+      <div class="list" v-show="isShowIntermediateList">
+        <router-link
+          :to="item.path"
+          v-for="item in intermediateList"
+          :key="item.path"
+          >{{ item.meta.title }}</router-link
+        >
+      </div>
     </div>
     <div class="advanced">
-      <router-link to="/advanced">高级</router-link>
+      <router-link to="/advanced">
+        <span>高级</span>
+        <i
+          class="iconfont icon-arrowdown"
+          @click="isShowAdvancedList = !isShowAdvancedList"
+          :class="{ active: isShowAdvancedList }"
+        ></i>
+      </router-link>
+      <div class="list" v-show="isShowAdvancedList">
+        <router-link
+          :to="item.path"
+          v-for="item in advancedList"
+          :key="item.path"
+          >{{ item.meta.title }}</router-link
+        >
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts" name="Sidebar">
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
 const isSHowBeginnerList = ref(false);
+const isShowIntermediateList = ref(false);
+const isShowAdvancedList = ref(false);
 
 const beginnerList = computed(() => {
-  return router.getRoutes().filter((route) => route.meta.title);
+  return router
+    .getRoutes()
+    .filter((route) => route.path.startsWith("/beginner") && route.meta.title);
+});
+const intermediateList = computed(() => {
+  return router
+    .getRoutes()
+    .filter(
+      (route) => route.path.startsWith("/intermediate") && route.meta.title
+    );
+});
+
+const advancedList = computed(() => {
+  return router
+    .getRoutes()
+    .filter((route) => route.path.startsWith("/advanced") && route.meta.title);
+});
+
+function initShowList() {
+  const initPath = window.location.pathname;
+  if (beginnerList.value.find((item) => item.path === initPath)) {
+    isSHowBeginnerList.value = true;
+  } else if (intermediateList.value.find((item) => item.path === initPath)) {
+    isShowIntermediateList.value = true;
+  } else if (advancedList.value.find((item) => item.path === initPath)) {
+    isShowAdvancedList.value = true;
+  }
+}
+onMounted(() => {
+  initShowList();
 });
 </script>
 

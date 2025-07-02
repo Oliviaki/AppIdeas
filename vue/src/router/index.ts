@@ -36,6 +36,17 @@ const router = createRouter({
       path: "/intermediate",
       name: "intermediate",
       component: () => import("@/views/Intermediate/index.vue"),
+      children: [
+        {
+          path: "1-Book-Finder-App",
+          name: "1-Book-Finder-App",
+          component: () =>
+            import("@/views/Intermediate/1_Book_Finder_App/index.vue"),
+          meta: {
+            title: "Book-Finder-App",
+          },
+        },
+      ],
     },
     {
       path: "/advanced",

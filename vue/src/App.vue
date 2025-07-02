@@ -1,16 +1,21 @@
 <template>
   <div class="app-container">
-    <div class="sidebar">
-      <Sidebar />
-    </div>
-    <div class="main">
-      <RouterView></RouterView>
-    </div>
+    <el-config-provider :message="config">
+      <div class="sidebar">
+        <Sidebar />
+      </div>
+      <div class="main">
+        <RouterView></RouterView>
+      </div>
+    </el-config-provider>
   </div>
 </template>
 
 <script setup lang="ts" name="App">
 import Sidebar from "@/components/Sidebar.vue";
+const config = {
+  max: 1,
+};
 </script>
 
 <style lang="scss" scoped>

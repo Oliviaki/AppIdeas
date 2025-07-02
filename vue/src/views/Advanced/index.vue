@@ -1,13 +1,7 @@
 <template>
-  <div class="advanced-container">
-    Advanced
-  </div>
+  <div class="advanced-container">Advanced</div>
 </template>
 
-<script setup lang="ts" name="Advanced">
+<script setup lang="ts" name="Advanced"></script>
 
-</script>
-
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
