@@ -1,0 +1,19 @@
+@use "@/utils/mixin.scss" as *;
+.app-container {
+  display: flex;
+  justify-content: flex-start;
+  .sidebar {
+    width: 200px;
+    height: 100vh;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+  .main {
+    @include bg("bg_main.png");
+    position: relative;
+    flex: 1;
+    overflow: auto;
+  }
+}

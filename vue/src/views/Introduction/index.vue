@@ -14,7 +14,7 @@
     <h1 class="title">梅狸猫的技术中心</h1>
     <p>
       GitHub项目资源地址:<a
-        href="https://github.com/florinpop17/app-ideas"
+        href="https://github.com/KelvinQiu802/project-ideas"
         target="_blank"
         >点击访问</a
       >
