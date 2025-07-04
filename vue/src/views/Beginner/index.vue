@@ -1,6 +1,6 @@
 <template>
   <div class="beginner-container">
-    <Description :table-data="tableData"></Description>
+    <Description :table-data="tableData" :top="10" :right="10"></Description>
     <router-view></router-view>
   </div>
 </template>

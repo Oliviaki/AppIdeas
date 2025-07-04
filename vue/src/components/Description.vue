@@ -1,5 +1,5 @@
 <template>
-  <div class="description-container">
+  <div class="description-container" :style="positionData">
     <el-table
       :data="tableData"
       style="width: 420px"
@@ -25,21 +25,43 @@
 </template>
 
 <script setup lang="ts" name="Description">
+import { computed } from "vue";
+
 interface tableDataType {
   name: string;
   link: string;
   des: string;
 }
-
-defineProps<{
-  tableData: tableDataType[];
-}>();
+const props = withDefaults(
+  defineProps<{
+    tableData: tableDataType[];
+    top?: number | string;
+    left?: number | string;
+    bottom?: number | string;
+    right?: number | string;
+  }>(),
+  {
+    top: "initial",
+    left: "initial",
+    bottom: "initial",
+    right: "initial",
+  }
+);
+function handleUnit(value: string | number) {
+  return Number.isInteger(value) ? value + "px" : value;
+}
+const positionData = computed(() => {
+  return {
+    top: handleUnit(props.top),
+    left: handleUnit(props.left),
+    bottom: handleUnit(props.bottom),
+    right: handleUnit(props.right),
+  };
+});
 </script>
 
 <style lang="scss" scoped>
 .description-container {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
 }
 </style>

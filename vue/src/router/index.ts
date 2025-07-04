@@ -7,25 +7,31 @@ const router = createRouter({
       path: "/",
       name: "introduction",
       component: () => import("@/views/Introduction/index.vue"),
+      meta: {
+        title: "Introduction",
+      },
     },
     {
       path: "/beginner",
       name: "beginner",
       component: () => import("@/views/Beginner/index.vue"),
+      meta: {
+        title: "Beginner",
+      },
       children: [
         {
-          path: "1-Bin2Dec",
-          name: "1-Bin2Dec",
-          component: () => import("@/views/Beginner/1-Bin2Dec/index.vue"),
+          path: "bin2Dec",
+          name: "bin2Dec",
+          component: () => import("@/views/Beginner/Bin2Dec/index.vue"),
           meta: {
             title: "Bin2Dec",
           },
         },
         {
-          path: "2-Border-radius-Previewer",
-          name: "2-Border-radius-Previewer",
+          path: "border-radius-previewer",
+          name: "border-radius-previewer",
           component: () =>
-            import("@/views/Beginner/2-Border-radius-Previewer/index.vue"),
+            import("@/views/Beginner/Border-radius-Previewer/index.vue"),
           meta: {
             title: "Border-radius-Previewer",
           },
@@ -36,12 +42,16 @@ const router = createRouter({
       path: "/intermediate",
       name: "intermediate",
       component: () => import("@/views/Intermediate/index.vue"),
+      meta: {
+        title: "Intermediate",
+        isChildren: false,
+      },
       children: [
         {
-          path: "1-Book-Finder-App",
-          name: "1-Book-Finder-App",
+          path: "book-Finder-App",
+          name: "book-Finder-App",
           component: () =>
-            import("@/views/Intermediate/1_Book_Finder_App/index.vue"),
+            import("@/views/Intermediate/Book-Finder-App/index.vue"),
           meta: {
             title: "Book-Finder-App",
           },
@@ -52,6 +62,9 @@ const router = createRouter({
       path: "/advanced",
       name: "advanced",
       component: () => import("@/views/Advanced/index.vue"),
+      meta: {
+        title: "Advanced",
+      },
     },
   ],
 });

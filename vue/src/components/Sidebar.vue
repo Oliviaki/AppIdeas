@@ -1,104 +1,42 @@
 <template>
   <div class="sidebar-container">
-    <div class="home">
-      <router-link to="/">首页</router-link>
-    </div>
-    <div class="beginner">
-      <router-link to="/beginner">
-        <span>初级</span>
-        <i
-          class="iconfont icon-arrowdown"
-          @click="isSHowBeginnerList = !isSHowBeginnerList"
-          :class="{ active: isSHowBeginnerList }"
-        ></i>
-      </router-link>
-      <div class="list" v-show="isSHowBeginnerList">
-        <router-link
-          :to="item.path"
-          v-for="item in beginnerList"
-          :key="item.path"
-          >{{ item.meta.title }}</router-link
-        >
-      </div>
-    </div>
-    <div class="intermediate">
-      <router-link to="/intermediate">
-        <span>中级</span>
-        <i
-          class="iconfont icon-arrowdown"
-          @click="isShowIntermediateList = !isShowIntermediateList"
-          :class="{ active: isShowIntermediateList }"
-        ></i>
-      </router-link>
-      <div class="list" v-show="isShowIntermediateList">
-        <router-link
-          :to="item.path"
-          v-for="item in intermediateList"
-          :key="item.path"
-          >{{ item.meta.title }}</router-link
-        >
-      </div>
-    </div>
-    <div class="advanced">
-      <router-link to="/advanced">
-        <span>高级</span>
-        <i
-          class="iconfont icon-arrowdown"
-          @click="isShowAdvancedList = !isShowAdvancedList"
-          :class="{ active: isShowAdvancedList }"
-        ></i>
-      </router-link>
-      <div class="list" v-show="isShowAdvancedList">
-        <router-link
-          :to="item.path"
-          v-for="item in advancedList"
-          :key="item.path"
-          >{{ item.meta.title }}</router-link
-        >
-      </div>
-    </div>
+    <el-menu
+      :default-active="defaultActive"
+      class="el-menu-vertical"
+      active-text-color="#1677FF"
+      background-color="#001529"
+      text-color="#fff"
+      router
+    >
+      <template v-for="item in router.getRoutes()" :key="item.path">
+        <template v-if="item.name === 'introduction'">
+          <el-menu-item :index="item.path">
+            <template #title>{{ item.meta.title }}</template>
+          </el-menu-item>
+        </template>
+        <template v-else-if="item.children.length">
+          <el-sub-menu :index="item.path">
+            <template #title>{{ item.meta.title }}</template>
+            <el-menu-item
+              v-for="child in item.children"
+              :key="child.path"
+              :index="`${item.path}/${child.path}`"
+            >
+              <template #title>{{ child.meta!.title }}</template>
+            </el-menu-item>
+          </el-sub-menu>
+        </template>
+      </template>
+    </el-menu>
   </div>
 </template>
 
 <script setup lang="ts" name="Sidebar">
-import { computed, onMounted, ref } from "vue";
+import { computed } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
-const isSHowBeginnerList = ref(false);
-const isShowIntermediateList = ref(false);
-const isShowAdvancedList = ref(false);
-
-const beginnerList = computed(() => {
-  return router
-    .getRoutes()
-    .filter((route) => route.path.startsWith("/beginner") && route.meta.title);
-});
-const intermediateList = computed(() => {
-  return router
-    .getRoutes()
-    .filter(
-      (route) => route.path.startsWith("/intermediate") && route.meta.title
-    );
-});
-
-const advancedList = computed(() => {
-  return router
-    .getRoutes()
-    .filter((route) => route.path.startsWith("/advanced") && route.meta.title);
-});
-
-function initShowList() {
-  const initPath = window.location.pathname;
-  if (beginnerList.value.find((item) => item.path === initPath)) {
-    isSHowBeginnerList.value = true;
-  } else if (intermediateList.value.find((item) => item.path === initPath)) {
-    isShowIntermediateList.value = true;
-  } else if (advancedList.value.find((item) => item.path === initPath)) {
-    isShowAdvancedList.value = true;
-  }
-}
-onMounted(() => {
-  initShowList();
+const defaultActive = computed(() => {
+  return router.currentRoute.value.path;
 });
 </script>
 
