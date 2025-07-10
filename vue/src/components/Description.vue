@@ -62,6 +62,6 @@ const positionData = computed(() => {
 
 <style lang="scss" scoped>
 .description-container {
-  position: absolute;
+  position: fixed;
 }
 </style>

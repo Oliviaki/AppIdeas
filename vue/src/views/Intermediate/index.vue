@@ -1,6 +1,6 @@
 <template>
   <div class="intermediate-container">
-    <Description :table-data="tableData" :bottom="10" :right="10"/>
+    <Description :table-data="tableData" :bottom="10" :right="10" />
     <router-view></router-view>
   </div>
 </template>
@@ -12,6 +12,16 @@ const tableData = [
     name: "Book Finder App",
     des: "按多个条件搜索书籍",
     link: "https://github.com/florinpop17/app-ideas/blob/master/Projects/2-Intermediate/Book-Finder-App.md",
+  },
+  {
+    name: "Rich Text Editor Quill",
+    des: "富文本编辑器",
+    link: "https://quilljs.com/docs/quickstart",
+  },
+  {
+    name: "SwitchTheme",
+    des: "使用sass和css实现主题切换",
+    link: "",
   },
 ];
 </script>

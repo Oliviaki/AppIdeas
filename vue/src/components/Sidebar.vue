@@ -44,47 +44,5 @@ const defaultActive = computed(() => {
 @use "@/assets/css/mixin.scss" as *;
 .sidebar-container {
   height: 2000px;
-  .home,
-  .beginner,
-  .intermediate,
-  .advanced {
-    text-align: center;
-    color: var(--text-color);
-    margin-bottom: 10px;
-    & > a {
-      display: block;
-      background-color: var(--bg-color);
-      height: 32px;
-      line-height: 32px;
-      padding: 0 10px;
-      box-sizing: border-box;
-      &:hover,
-      &.router-link-exact-active {
-        background-color: var(--secondary-color);
-        color: var(--primary-color);
-      }
-      i {
-        float: right;
-        &.active {
-          transform: rotate(180deg);
-        }
-      }
-    }
-    .list {
-      a {
-        display: block;
-        height: 32px;
-        line-height: 32px;
-        padding: 0 10px;
-        box-sizing: border-box;
-        margin-bottom: 10px;
-        background-color: var(--accent-color);
-        font-size: 14px;
-        &.router-link-exact-active {
-          background-color: var(--primary-color);
-        }
-      }
-    }
-  }
 }
 </style>

@@ -1,0 +1,14 @@
+.switch-theme-container[data-theme="day"] {
+  --bg_container_color: linear-gradient(180deg, #ffb33b 0%, #ffefac 100%);
+  --bg_header: url("./assets/day/bg_header_day__link.png");
+  --bg_relaxed_notice: url("./assets/day/bg_relaxed_notice_day.png");
+  --bg_icon: url("./assets/day/day_icon.png");
+  --text_color: #fff;
+}
+.switch-theme-container[data-theme="night"] {
+  --bg_container_color: linear-gradient(180deg, #1d24a7 0%, #5154db 100%);
+  --bg_header: url("./assets/night/bg_header_night__link.png");
+  --bg_relaxed_notice: url("./assets/night/bg_relaxed_notice_night.png");
+  --bg_icon: url("./assets/night/night_icon.png");
+  --text_color: #333;
+}

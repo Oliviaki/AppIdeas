@@ -1,0 +1,17 @@
+@mixin bg($width, $height, $url) {
+  width: $width;
+  height: $height;
+  background: url("@/assets/" + $url + ".png") no-repeat;
+  background-size: 100% 100%;
+}
+
+@mixin set-bg($url) {
+  background: url("@/assets/" + $url + ".png") no-repeat;
+  background-size: 100% 100%;
+}
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

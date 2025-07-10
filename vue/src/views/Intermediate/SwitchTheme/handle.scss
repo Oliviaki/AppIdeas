@@ -1,0 +1,39 @@
+@use "./theme.scss" as theme;
+@use "sass:map";
+
+// 1. 使用更安全的主题数据访问方式
+@function theme-value($theme, $key) {
+  @return map.get($theme, $key);
+}
+
+// 2. 改进的主题切换混合宏，避免全局变量
+@mixin theme-context {
+  @each $theme-name, $theme-data in theme.$themes {
+    // [data-theme="#{$theme-name}"] & {
+    //   // 将主题数据作为参数传递给内容块
+    //   @content ($theme-data);
+    // }
+    .switch-theme-container[data-theme="#{$theme-name}"] & {
+      @content ($theme-data);
+    }
+  }
+}
+
+// 3. 通用的主题属性设置混合宏
+@mixin theme-property($property, $key) {
+  @include theme-context using ($theme) {
+    $value: theme-value($theme, $key);
+    @if $value != null {
+      #{$property}: $value;
+    } @else {
+      @warn "Theme key '#{$key}' not found. Available keys: #{map.keys($theme)}";
+    }
+  }
+}
+
+// 4. 专用背景图片混合宏（基于通用混合宏）
+@mixin theme-bg-image($image-key) {
+  @include theme-property(background-image, $image-key);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}

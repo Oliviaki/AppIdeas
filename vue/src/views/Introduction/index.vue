@@ -1,16 +1,5 @@
 <template>
   <div class="introduction-container">
-    <div class="switch-theme">
-      <el-switch
-        v-model="themeStore.theme"
-        active-value="light"
-        inactive-value="dark"
-        :active-action-icon="View"
-        :inactive-action-icon="Hide"
-        active-text="亮色模式"
-        inactive-text="暗色模式"
-      />
-    </div>
     <h1 class="title">梅狸猫的技术中心</h1>
     <p>
       GitHub项目资源地址:<a
@@ -28,29 +17,25 @@
     </p>
   </div>
 </template>
-<script setup lang="ts" name="Introduction">
-import { useThemeStore } from "@/stores/useThemeStore";
-import { View, Hide } from "@element-plus/icons-vue";
-const themeStore = useThemeStore();
-</script>
+<script setup lang="ts" name="Introduction"></script>
 <style lang="scss" scoped>
 @use "@/assets/css/mixin.scss" as *;
 .introduction-container {
   @include positioningCenteredVerticallyAndHorizontally;
   max-width: 600px;
   padding: 30px 60px;
-  background: var(--bg-color);
+  background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   .title {
-    color: var(--text-color);
+    color: #333;
     font-size: 2rem;
     margin-bottom: 20px;
   }
 
   p {
-    color: var(--text-color);
+    color: #333;
     a {
       color: #007bff;
       text-decoration: none;

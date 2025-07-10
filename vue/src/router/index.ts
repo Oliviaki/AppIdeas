@@ -48,12 +48,29 @@ const router = createRouter({
       },
       children: [
         {
-          path: "book-Finder-App",
-          name: "book-Finder-App",
+          path: "book-finder-app",
+          name: "book-finder-app",
           component: () =>
             import("@/views/Intermediate/Book-Finder-App/index.vue"),
           meta: {
             title: "Book-Finder-App",
+          },
+        },
+        {
+          path: "rich-text-editor",
+          name: "rich-text-editor",
+          component: () =>
+            import("@/views/Intermediate/Rich-Text-Editor-Quill/index.vue"),
+          meta: {
+            title: "Rich-Text-Editor",
+          },
+        },
+        {
+          path: "switch-theme",
+          name: "switch-theme",
+          component: () => import("@/views/Intermediate/SwitchTheme/index.vue"),
+          meta: {
+            title: "Switch-Theme",
           },
         },
       ],
@@ -65,8 +82,23 @@ const router = createRouter({
       meta: {
         title: "Advanced",
       },
+      children: [
+        {
+          path: "long-list-optimization",
+          name: "long-list-optimization",
+          component: () =>
+            import("@/views/Advanced/LongListOptimization/index.vue"),
+          meta: {
+            title: "Long-List-Optimization",
+          },
+        },
+      ],
     },
   ],
+});
+
+router.beforeEach((to, from) => {
+  document.title = `梅狸猫-${to.meta.title as string}`;
 });
 
 export default router;
