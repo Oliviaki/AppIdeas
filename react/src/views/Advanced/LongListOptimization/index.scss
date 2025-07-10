@@ -1,0 +1,31 @@
+.long-list-optimization-container {
+  display: flex;
+  height: 100%;
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .item-equal-height {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    background-color: antiquewhite;
+    .scroll {
+      width: 500px;
+      height: 600px;
+      background-color: beige;
+    }
+  }
+  .item-unequal-height {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    background-color: aqua;
+  }
+}

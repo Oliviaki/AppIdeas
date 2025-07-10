@@ -19,6 +19,9 @@ const Bin2Dec = lazy(() => import("@/views/Beginner/Bin2Dec"));
 const BorderRadiusPreviewer = lazy(
   () => import("@/views/Beginner/BorderRadiusPreviewer")
 );
+const LongListOptimization = lazy(
+  () => import("@/views/Advanced/LongListOptimization")
+);
 export const routes: CustomRouteObject[] = [
   {
     path: "/",
@@ -46,7 +49,7 @@ export const routes: CustomRouteObject[] = [
         },
       },
       {
-        path: "border-radius-breviewer",
+        path: "border-radius-previewer",
         element: <BorderRadiusPreviewer />,
         meta: {
           title: "BorderRadiusPreviewer",
@@ -67,6 +70,15 @@ export const routes: CustomRouteObject[] = [
     meta: {
       title: "高级",
     },
+    children: [
+      {
+        path: "long-list-optimization",
+        element: <LongListOptimization />,
+        meta: {
+          title: "LongListOptimization",
+        },
+      },
+    ],
   },
 ];
 

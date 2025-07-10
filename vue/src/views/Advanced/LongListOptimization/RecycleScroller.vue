@@ -44,23 +44,23 @@ const recycleScrollerContainer = useTemplateRef("recycle-scroller-container");
  */
 const pool = ref<poolItem[]>([]); //渲染池，保存渲染的列表项
 
-const totalHeight = computed(() => props.listData.length * props.itemHeight); //列表总高度
+const totalHeight = computed(
+  () =>
+    props.listData.length * props.itemHeight +
+    props.itemGap * (props.listData.length - 1)
+); //列表总高度
 
 function setPool() {
   const scrollTop = recycleScrollerContainer.value!.scrollTop; //获取滚动条的滚动距离
   const containerHeight = recycleScrollerContainer.value!.clientHeight; //获取容器的可见高度
-  const startIndex = Math.max(
-    Math.floor(scrollTop / props.itemHeight) - prev,
-    0
-  ); //获取当前滚动条所在位置的列表项的索引
-  const endIndex =
-    Math.ceil((scrollTop + containerHeight) / props.itemHeight) + next; //获取当前滚动条所在位置的末尾列表项的索引
-  const startPosition = startIndex * props.itemHeight; //起始位置的偏移值
+  const itemSize = props.itemHeight + props.itemGap;
+  const startIndex = Math.max(Math.floor(scrollTop / itemSize) - prev, 0); //获取当前滚动条所在位置的列表项的索引
+  const endIndex = Math.ceil((scrollTop + containerHeight) / itemSize) + next; //获取当前滚动条所在位置的末尾列表项的索引
+  const startPosition = startIndex * itemSize; //起始位置的偏移值
   pool.value = props.listData.slice(startIndex, endIndex).map((item, index) => {
     return {
       item,
-      position:
-        startPosition + index * props.itemHeight + index * props.itemGap,
+      position: startPosition + index * itemSize,
     };
   });
 }
@@ -74,7 +74,7 @@ onMounted(() => {
 .recycle-scroller-container {
   overflow: auto;
   &::-webkit-scrollbar {
-    width: 0;
+    // width: 0;
   }
   .recycle-scroller-warp {
     position: relative;

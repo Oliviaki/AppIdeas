@@ -1,0 +1,15 @@
+.recycle-scroller-container {
+  overflow: auto;
+  &::-webkit-scrollbar {
+    // width: 0;
+  }
+  .recycle-scroller-warp {
+    position: relative;
+    .recycle-scroller-item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
+}
