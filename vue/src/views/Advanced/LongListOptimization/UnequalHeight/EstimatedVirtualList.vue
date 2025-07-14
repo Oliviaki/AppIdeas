@@ -19,8 +19,16 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { ref, reactive, computed, onMounted, nextTick, watch } from "vue";
+<script lang="ts" setup name="EstimatedVirtualList">
+import {
+  ref,
+  reactive,
+  computed,
+  onMounted,
+  nextTick,
+  watch,
+  useTemplateRef,
+} from "vue";
 
 interface ItemData {
   id: number | string;
@@ -40,25 +48,22 @@ interface ItemSize {
   bottom: number;
 }
 
-const props = defineProps({
-  items: {
-    type: Array as () => ItemData[],
-    required: true,
-  },
-  estimatedItemSize: {
-    type: Number,
-    default: 50,
-  },
-  buffer: {
-    type: Number,
-    default: 200,
-  },
-});
+const props = withDefaults(
+  defineProps<{
+    items: ItemData[];
+    estimatedItemSize?: number;
+    buffer?: number;
+  }>(),
+  {
+    estimatedItemSize: 50,
+    buffer: 2000,
+  }
+);
 
 const emit = defineEmits(["scroll"]);
 
-const containerRef = ref<HTMLDivElement | null>(null);
-const viewportRef = ref<HTMLDivElement | null>(null);
+const containerRef = useTemplateRef("containerRef");
+const viewportRef = useTemplateRef("viewportRef");
 
 // 存储每个元素的高度和位置信息
 const itemSizes = reactive<{ [key: string | number]: ItemSize }>({});
