@@ -73,6 +73,15 @@ const router = createRouter({
             title: "Switch-Theme",
           },
         },
+        {
+          path: "vue-draggable",
+          name: "vue-draggable",
+          component: () =>
+            import("@/views/Intermediate/Vue-Draggable/index.vue"),
+          meta: {
+            title: "Vue-Draggable",
+          },
+        },
       ],
     },
     {

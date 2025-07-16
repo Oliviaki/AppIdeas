@@ -23,6 +23,11 @@ const tableData = [
     des: "使用sass和css实现主题切换",
     link: "",
   },
+  {
+    name: "Vuedraggable",
+    des: "拖拽组件",
+    link: "",
+  },
 ];
 </script>
 
