@@ -82,6 +82,14 @@ const router = createRouter({
             title: "Vue-Draggable",
           },
         },
+        {
+          path: "gsap-site",
+          name: "gsap-site",
+          component: () => import("@/views/Intermediate/Gasp-Site/index.vue"),
+          meta: {
+            title: "Gsap-Site",
+          },
+        },
       ],
     },
     {

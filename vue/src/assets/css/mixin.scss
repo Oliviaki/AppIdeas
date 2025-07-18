@@ -15,9 +15,33 @@
   text-overflow: ellipsis;
 }
 
-@mixin positioningCenteredVerticallyAndHorizontally{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+@mixin positioningCenteredVerticallyAndHorizontally {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*
+  包含文字：
+  0123456789ABCDEFGHIJKLMNO
+  PQRSTUVWXYZabcdefghijklmn
+  opqrstuvwxyz
+*/
+@font-face {
+  font-family: "Modern Negra";
+  src: url("https://res.cdn.changbaimg.com/resource/v2/1752832331308_1ad0f188cdc6ae38.woff2")
+    format("woff2");
+}
+
+/*
+  包含文字：
+  0123456789ABCDEFGHIJKLMNO
+  PQRSTUVWXYZabcdefghijklmn
+  opqrstuvwxyz
+*/
+@font-face {
+  font-family: "三级泼墨体";
+  src: url("https://res.cdn.changbaimg.com/resource/v2/1752832649543_88cb7ccb81472a40.woff2")
+    format("woff2");
 }
