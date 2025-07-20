@@ -1,6 +1,11 @@
 <template>
   <div class="intermediate-container">
-    <Description :table-data="tableData" :bottom="10" :right="10" v-show="false"/>
+    <Description
+      :table-data="tableData"
+      :bottom="10"
+      :right="10"
+      v-show="false"
+    />
     <router-view></router-view>
   </div>
 </template>
@@ -29,10 +34,10 @@ const tableData = [
     link: "",
   },
   {
-    name:"Gasp",
-    des:"gasp 动画库",
-    link:"https://gsap.com/docs/v3/GSAP/"
-  }
+    name: "Gasp",
+    des: "gasp 动画库",
+    link: "https://gsap.com/docs/v3/GSAP/",
+  },
 ];
 </script>
 
@@ -42,6 +47,7 @@ const tableData = [
   width: 100%;
   height: 100%;
   padding: 10px;
+  overflow: auto;
   box-sizing: border-box;
 }
 </style>

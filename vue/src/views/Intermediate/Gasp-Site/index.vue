@@ -2,13 +2,22 @@
   <div class="gsap-container">
     <Navbar />
     <Hero />
-    <div class="padding" style="height: 2000vh"></div>
+    <Cocktails />
+    <About />
+    <Art />
+    <MenuC />
+    <Contact />
   </div>
 </template>
 
 <script setup lang="ts" name="Gasp">
 import Navbar from "./components/Navbar.vue";
 import Hero from "./components/Hero.vue";
+import Cocktails from "./components/Cocktails.vue";
+import About from "./components/About.vue";
+import Art from "./components/Art.vue";
+import MenuC from "./components/MenuC.vue";
+import Contact from "./components/Contact.vue";
 import Gsap from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
 Gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -23,13 +32,14 @@ Gsap.registerPlugin(ScrollTrigger, SplitText);
   --font-sans: "Mona Sans", sans-serif;
   --font-modern-negra: "Modern Negra", sans-serif;
   --font-serif: "DM Serif Text", serif;
-  height: 100%;
-  width: 100%;
   background-color: black;
   color: white;
   scroll-behavior: smooth;
-  overflow-x: hidden;
-  overflow-y: auto;
   position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }
 </style>

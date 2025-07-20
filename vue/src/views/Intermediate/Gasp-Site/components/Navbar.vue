@@ -21,7 +21,7 @@ onMounted(async () => {
     scrollTrigger: {
       trigger: ".navbar-container",
       start: "bottom top",
-      scroller: ".gsap-container",
+      scroller: ".intermediate-container",
     },
   });
   tl.fromTo(
@@ -29,7 +29,7 @@ onMounted(async () => {
     { backgroundColor: "transparent" },
     {
       backgroundColor: "rgba(0,0,0,0.5)",
-      backgroundFilter: "blur(10px)",
+      backdropFilter: "blur(10px)",
       duration: 1,
       ease: "power1.inOut",
     }
