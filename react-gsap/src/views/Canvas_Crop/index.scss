@@ -1,0 +1,8 @@
+.canvas_crop-container {
+  height: 100vh;
+  background-color: #000;
+  overflow: hidden;
+  canvas {
+    display: block;
+  }
+}

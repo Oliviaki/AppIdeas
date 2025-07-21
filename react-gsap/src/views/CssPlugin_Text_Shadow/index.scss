@@ -1,0 +1,13 @@
+.cssPlugin_Text_Shadow-container {
+  height: 100vh;
+  background-color: #000;
+  overflow: hidden;
+  cursor: pointer;
+  .text {
+    font-size: 300px;
+    text-align: center;
+    line-height: 200px;
+    margin: 15% auto;
+    text-shadow: 10px 10px 4px #fff;
+  }
+}
