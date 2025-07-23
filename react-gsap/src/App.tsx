@@ -2,11 +2,28 @@ import { memo } from "react";
 import type { FC, ReactNode } from "react";
 import RouterView, { routes } from "./router";
 import { NavLink } from "react-router-dom";
-import "./App.scss"
+import Gasp from "gsap";
+import { useGSAP } from "@gsap/react";
+import "./App.scss";
 interface AppProps {
   children?: ReactNode;
 }
 const App: FC<AppProps> = () => {
+  function handleClick(isExpand: boolean) {
+    if (isExpand) {
+      Gasp.to(".app-container .link", {
+        duration: 1,
+        ease: "bounce.out",
+        xPercent: 100,
+      });
+    } else {
+      Gasp.to(".app-container .link", {
+        duration: 1,
+        ease: "bounce.out",
+        xPercent: 0,
+      });
+    }
+  }
   return (
     <div className="app-container">
       <RouterView></RouterView>
@@ -16,6 +33,22 @@ const App: FC<AppProps> = () => {
             {item.path}
           </NavLink>
         ))}
+        <div
+          className="right-arrow"
+          onClick={() => {
+            handleClick(true);
+          }}
+        >
+          折叠
+        </div>
+        <div
+          className="left-arrow"
+          onClick={() => {
+            handleClick(false);
+          }}
+        >
+          展开
+        </div>
       </div>
     </div>
   );

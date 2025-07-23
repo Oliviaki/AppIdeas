@@ -1,5 +1,6 @@
 .app-container {
   position: relative;
+  overflow: hidden;
   .link {
     position: absolute;
     width: 200px;
@@ -21,6 +22,36 @@
       &:last-child {
         margin-bottom: 0;
       }
+    }
+    .right-arrow {
+      cursor: pointer;
+      position: absolute;
+      width: 30%;
+      height: 20px;
+      bottom: -20px;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 20px;
+      color: #a8e6cf;
+      border-radius: 0 0 4px 4px;
+      background-color: #ff677d;
+    }
+    .left-arrow{
+      cursor: pointer;
+      position: absolute;
+      width: 20px;
+      height: 40%;
+      left: -20px;
+      top:50%;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: center;
+      color: #a8e6cf;
+      align-items: center;
+      border-radius: 4px 0 0 4px;
+      background-color: #ff677d;
     }
   }
 }

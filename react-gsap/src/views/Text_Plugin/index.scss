@@ -1,0 +1,11 @@
+.text-plugin-container {
+  height: 100vh;
+  background-color: #000;
+  .text {
+    text-align: center;
+    font-size: 10vh;
+    font-weight: 700;
+    letter-spacing: 6vw;
+    text-shadow: 0 0 1vh #fff, 0 0 2vh #00dbf0;
+  }
+}
