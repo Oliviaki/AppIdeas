@@ -1,4 +1,4 @@
-import { useRoutes } from "react-router-dom";
+import { Navigate, useRoutes } from "react-router-dom";
 import type { RouteObject } from "react-router-dom";
 import Canvas_Crop from "@/views/Canvas_Crop";
 import Stagger_Object from "@/views/Stagger_Object";
@@ -7,7 +7,12 @@ import ModifiersPlugin_Part_1 from "@/views/ModifiersPlugin_Part_1";
 import EndArrayPlugin from "@/views/EndArrayPlugin";
 import ExpoScaleEase from "@/views/ExpoScaleEase";
 import TextPlugin from "@/views/Text_Plugin";
+import MyWish from "@/views/MyWish";
 export const routes: RouteObject[] = [
+  {
+    path: "/",
+    element: <Navigate to="/Canvas_Crop" />,
+  },
   {
     path: "/Canvas_Crop",
     element: <Canvas_Crop></Canvas_Crop>,
@@ -35,6 +40,10 @@ export const routes: RouteObject[] = [
   {
     path: "text-plugin",
     element: <TextPlugin></TextPlugin>,
+  },
+  {
+    path: "my-wish",
+    element: <MyWish></MyWish>,
   },
 ];
 function RouterView() {

@@ -1,0 +1,23 @@
+@mixin bg($url) {
+  background: url($url) no-repeat 0 0/100%;
+}
+
+@mixin flex($justifyContent: center, $alignItems: center, $direction: row) {
+  display: flex;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+  flex-direction: $direction;
+}
+
+@mixin ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin positioningCenteredVerticallyAndHorizontally {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,132 @@
+@use "@/mixin.scss" as mixin;
+@mixin calcSize($width, $height) {
+  width: calc(#{$width} / 2);
+  height: calc(#{$height} / 2);
+}
+/*
+  包含文字：
+  美丽富裕开心成功浪漫稳定
+*/
+@font-face {
+  font-family: "MFWanXiang-Regular";
+  src: url("https://res.cdn.changbaimg.com/resource/v2/1753274249801_767f671d6f8cb0e0.woff2")
+    format("woff2");
+}
+.my-wish-container {
+  height: 100vh;
+  padding-top: 1px;
+  .wish {
+    position: relative;
+    margin: 100px auto;
+    @include calcSize(750px, 1623px);
+    @include mixin.bg("./wish/bg_wish.png");
+    box-sizing: border-box;
+    padding-top: 1px;
+    .cards {
+      font-family: "MFWanXiang-Regular";
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-wrap: wrap;
+      row-gap: 20px;
+      color: #2a6eff;
+      font-size: 30px;
+      margin-top: 60px;
+      .card {
+        @include calcSize(210px, 290px);
+        user-select: none;
+        cursor: pointer;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .btn-wish {
+      position: absolute;
+      cursor: pointer;
+      @include calcSize(470px, 210px);
+      @include mixin.bg("./wish/btn_publish.png");
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  .star {
+    position: absolute;
+    pointer-events: none;
+  }
+  .star1 {
+    @include calcSize(261px, 261px);
+    @include mixin.bg("./wish/star1.png");
+    bottom: 210px;
+    left: 10px;
+  }
+  .star2 {
+    @include calcSize(54px, 54px);
+    @include mixin.bg("./wish/star2.png");
+    top: 210px;
+    left: 10px;
+  }
+  .star3 {
+    @include calcSize(70px, 70px);
+    @include mixin.bg("./wish/star3.png");
+    top: 110px;
+    right: 20px;
+  }
+  .star4 {
+    @include calcSize(36px, 36px);
+    @include mixin.bg("./wish/star4.png");
+    top: 10px;
+    left: 60px;
+  }
+  .star5 {
+    @include calcSize(118px, 58px);
+    @include mixin.bg("./wish/star5.png");
+    bottom: 20px;
+    right: 20px;
+  }
+  .star6 {
+    @include calcSize(118px, 58px);
+    @include mixin.bg("./wish/star6.png");
+    bottom: 40px;
+    left: 80px;
+  }
+  .star7 {
+    @include calcSize(188px, 70px);
+    @include mixin.bg("./wish/star7.png");
+    bottom: 200px;
+    right: 100px;
+  }
+  .star8 {
+    @include calcSize(102px, 102px);
+    @include mixin.bg("./wish/star8.png");
+    top: 140px;
+    left: 200px;
+  }
+  .star9 {
+    @include calcSize(84px, 84px);
+    @include mixin.bg("./wish/star9.png");
+    top: 300px;
+    right: 200px;
+  }
+  .star10 {
+    @include calcSize(78px, 78px);
+    @include mixin.bg("./wish/star10.png");
+    top: 100px;
+    left: 100px;
+  }
+  .star11 {
+    @include calcSize(54px, 54px);
+    @include mixin.bg("./wish/star11.png");
+    top: 30px;
+    right: 100px;
+  }
+  .star12 {
+    @include calcSize(36px, 36px);
+    @include mixin.bg("./wish/star12.png");
+    top: 200px;
+    right: 30px;
+  }
+}

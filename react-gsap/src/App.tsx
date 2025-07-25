@@ -1,10 +1,12 @@
-import { memo } from "react";
+import { memo, useRef } from "react";
 import type { FC, ReactNode } from "react";
 import RouterView, { routes } from "./router";
 import { NavLink } from "react-router-dom";
 import Gasp from "gsap";
 import { useGSAP } from "@gsap/react";
+import { Draggable } from "gsap/Draggable";
 import "./App.scss";
+Gasp.registerPlugin(Draggable);
 interface AppProps {
   children?: ReactNode;
 }
@@ -24,8 +26,18 @@ const App: FC<AppProps> = () => {
       });
     }
   }
+  useGSAP(() => {
+    Draggable.create(".app-container .link", {
+      bounds: {
+        minX: 0,
+        maxX: 0,
+        minY: 0,
+        maxY: 600
+      },
+    });
+  }, []);
   return (
-    <div className="app-container">
+    <div className="app-container" >
       <RouterView></RouterView>
       <div className="link">
         {routes.map((item) => (
